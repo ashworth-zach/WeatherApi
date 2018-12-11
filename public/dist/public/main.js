@@ -35,23 +35,41 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppRoutingModule", function() { return AppRoutingModule; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _task_task_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./task/task.component */ "./src/app/task/task.component.ts");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _tulsa_tulsa_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./tulsa/tulsa.component */ "./src/app/tulsa/tulsa.component.ts");
+/* harmony import */ var _dc_dc_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./dc/dc.component */ "./src/app/dc/dc.component.ts");
+/* harmony import */ var _seattle_seattle_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./seattle/seattle.component */ "./src/app/seattle/seattle.component.ts");
+/* harmony import */ var _sanjose_sanjose_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./sanjose/sanjose.component */ "./src/app/sanjose/sanjose.component.ts");
+/* harmony import */ var _chicago_chicago_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./chicago/chicago.component */ "./src/app/chicago/chicago.component.ts");
+/* harmony import */ var _dallas_dallas_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./dallas/dallas.component */ "./src/app/dallas/dallas.component.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+
+
+
+
+
+
 
 
 
 
 var routes = [
     { path: 'task', component: _task_task_component__WEBPACK_IMPORTED_MODULE_1__["TaskComponent"] },
-    { path: '', pathMatch: 'full', redirectTo: '/task' },
+    { path: 'dallas', component: _dallas_dallas_component__WEBPACK_IMPORTED_MODULE_7__["DallasComponent"] },
+    { path: 'dc', component: _dc_dc_component__WEBPACK_IMPORTED_MODULE_3__["DcComponent"] },
+    { path: 'chicago', component: _chicago_chicago_component__WEBPACK_IMPORTED_MODULE_6__["ChicagoComponent"] },
+    { path: 'tulsa', component: _tulsa_tulsa_component__WEBPACK_IMPORTED_MODULE_2__["TulsaComponent"] },
+    { path: 'sanjose', component: _sanjose_sanjose_component__WEBPACK_IMPORTED_MODULE_5__["SanjoseComponent"] },
+    { path: 'seattle', component: _seattle_seattle_component__WEBPACK_IMPORTED_MODULE_4__["SeattleComponent"] },
+    { path: '', pathMatch: 'full', redirectTo: '/tulsa' },
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
     }
     AppRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
-            imports: [_angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"].forRoot(routes)],
-            exports: [_angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"]]
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_8__["NgModule"])({
+            imports: [_angular_router__WEBPACK_IMPORTED_MODULE_9__["RouterModule"].forRoot(routes)],
+            exports: [_angular_router__WEBPACK_IMPORTED_MODULE_9__["RouterModule"]]
         })
     ], AppRoutingModule);
     return AppRoutingModule;
@@ -79,7 +97,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<div style=\"text-align:center\">\n  <h1>\n    Welcome to {{ title }}!\n  </h1>\n  <button [routerLink]=\"['/task']\">Load Alpha</button>\n\n<router-outlet></router-outlet>\n"
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<div style=\"text-align:center\">\n  <h1>\n    Welcome to {{ title }}!\n  </h1>\n  <a [routerLink]=\"['/dc']\">dc</a> | <a [routerLink]=\"['/chicago']\">chicago</a> | <a [routerLink]=\"['/']\">tulsa</a> | <a [routerLink]=\"['/sanjose']\">sanjose</a> | <a [routerLink]=\"['/seattle']\">seattle</a>\n\n\n<router-outlet></router-outlet>\n"
 
 /***/ }),
 
@@ -367,10 +385,11 @@ __webpack_require__.r(__webpack_exports__);
 var HttpService = /** @class */ (function () {
     function HttpService(_http) {
         this._http = _http;
+        this.data = {};
         //   this.getTasks();
     }
-    HttpService.prototype.getPokemon = function (x) {
-        return this._http.get("https://pokeapi.co/api/v2/pokemon/" + x + "/");
+    HttpService.prototype.getTulsa = function (x) {
+        return this._http.get("https://samples.openweathermap.org/data/2.5/weather?q=Tulsa,us&appid=b6907d289e10d714a6e88b30761fae22");
     };
     HttpService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
@@ -588,10 +607,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TulsaComponent", function() { return TulsaComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../http.service */ "./src/app/http.service.ts");
+
 
 
 var TulsaComponent = /** @class */ (function () {
-    function TulsaComponent() {
+    function TulsaComponent(_httpService) {
+        this._httpService = _httpService;
     }
     TulsaComponent.prototype.ngOnInit = function () {
     };
@@ -601,7 +623,7 @@ var TulsaComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./tulsa.component.html */ "./src/app/tulsa/tulsa.component.html"),
             styles: [__webpack_require__(/*! ./tulsa.component.css */ "./src/app/tulsa/tulsa.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_http_service__WEBPACK_IMPORTED_MODULE_2__["HttpService"]])
     ], TulsaComponent);
     return TulsaComponent;
 }());

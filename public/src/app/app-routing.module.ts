@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'sanjose',component:SanjoseComponent },
   { path: 'seattle',component: SeattleComponent },
   
-  { path: '', pathMatch: 'full', redirectTo: '/task' },
+  { path: '', pathMatch: 'full', redirectTo: '/tulsa' },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
