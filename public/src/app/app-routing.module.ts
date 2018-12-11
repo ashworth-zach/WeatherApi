@@ -11,10 +11,10 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   { path: 'task',component: TaskComponent },
   { path: 'dallas',component: DallasComponent },
-  { path: 'dc',component: DcComponent },
+  { path: 'district of columbia',component: DcComponent },
   { path: 'chicago',component: ChicagoComponent },
   { path: 'tulsa',component: TulsaComponent },
-  { path: 'sanjose',component:SanjoseComponent },
+  { path: 'san jose',component:SanjoseComponent },
   { path: 'seattle',component: SeattleComponent },
   
   { path: '', pathMatch: 'full', redirectTo: '/tulsa' },

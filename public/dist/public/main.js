@@ -56,10 +56,10 @@ __webpack_require__.r(__webpack_exports__);
 var routes = [
     { path: 'task', component: _task_task_component__WEBPACK_IMPORTED_MODULE_1__["TaskComponent"] },
     { path: 'dallas', component: _dallas_dallas_component__WEBPACK_IMPORTED_MODULE_7__["DallasComponent"] },
-    { path: 'dc', component: _dc_dc_component__WEBPACK_IMPORTED_MODULE_3__["DcComponent"] },
+    { path: 'district of columbia', component: _dc_dc_component__WEBPACK_IMPORTED_MODULE_3__["DcComponent"] },
     { path: 'chicago', component: _chicago_chicago_component__WEBPACK_IMPORTED_MODULE_6__["ChicagoComponent"] },
     { path: 'tulsa', component: _tulsa_tulsa_component__WEBPACK_IMPORTED_MODULE_2__["TulsaComponent"] },
-    { path: 'sanjose', component: _sanjose_sanjose_component__WEBPACK_IMPORTED_MODULE_5__["SanjoseComponent"] },
+    { path: 'san jose', component: _sanjose_sanjose_component__WEBPACK_IMPORTED_MODULE_5__["SanjoseComponent"] },
     { path: 'seattle', component: _seattle_seattle_component__WEBPACK_IMPORTED_MODULE_4__["SeattleComponent"] },
     { path: '', pathMatch: 'full', redirectTo: '/tulsa' },
 ];
@@ -97,7 +97,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<div style=\"text-align:center\">\n  <h1>\n    Welcome to {{ title }}!\n  </h1>\n  <a [routerLink]=\"['/dc']\">dc</a> | <a [routerLink]=\"['/chicago']\">chicago</a> | <a [routerLink]=\"['/']\">tulsa</a> | <a [routerLink]=\"['/sanjose']\">sanjose</a> | <a [routerLink]=\"['/seattle']\">seattle</a>\n\n\n<router-outlet></router-outlet>\n"
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<div style=\"text-align:center\">\n  <h1>\n    Welcome to {{ title }}!\n  </h1>\n  <a [routerLink]=\"['/district of columbia']\">dc</a> | <a [routerLink]=\"['/chicago']\">chicago</a> | <a [routerLink]=\"['/']\">tulsa</a> | <a [routerLink]=\"['/san jose']\">sanjose</a> | <a [routerLink]=\"['/seattle']\">seattle</a>\n\n\n<router-outlet></router-outlet>\n"
 
 /***/ }),
 
@@ -216,7 +216,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  chicago works!\n</p>\n"
+module.exports = "<h4>HUMIDITY: {{data.main.humidity}}</h4>\n<h4>TEMPERATURE(AVG):  {{data.main.temp}}</h4>\n<h4>TEMPERATURE(LOW): {{data.main.temp_min}}</h4>\n<h4>TEMPERATURE(HIGH): {{data.main.temp_max}}</h4>\n<h4>STATUS: {{data.weather[0].description}}</h4>\n"
 
 /***/ }),
 
@@ -232,12 +232,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChicagoComponent", function() { return ChicagoComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../http.service */ "./src/app/http.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+
+
 
 
 var ChicagoComponent = /** @class */ (function () {
-    function ChicagoComponent() {
+    function ChicagoComponent(_httpService, route) {
+        this._httpService = _httpService;
+        this.route = route;
     }
     ChicagoComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        var observable = this._httpService.getPath(this.route.url.value[0].path);
+        observable.subscribe(function (x) {
+            // this.route.params.subscribe(y=>{
+            //   console.log(y);
+            // })
+            console.log(x);
+            _this.data = x;
+            console.log("data", _this.data);
+        });
     };
     ChicagoComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -245,7 +261,7 @@ var ChicagoComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./chicago.component.html */ "./src/app/chicago/chicago.component.html"),
             styles: [__webpack_require__(/*! ./chicago.component.css */ "./src/app/chicago/chicago.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_http_service__WEBPACK_IMPORTED_MODULE_2__["HttpService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"]])
     ], ChicagoComponent);
     return ChicagoComponent;
 }());
@@ -272,7 +288,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  dallas works!\n</p>\n"
+module.exports = "<h4>HUMIDITY: {{data.main.humidity}}</h4>\n<h4>TEMPERATURE(AVG):  {{data.main.temp}}</h4>\n<h4>TEMPERATURE(LOW): {{data.main.temp_min}}</h4>\n<h4>TEMPERATURE(HIGH): {{data.main.temp_max}}</h4>\n<h4>STATUS: {{data.weather[0].description}}</h4>\n"
 
 /***/ }),
 
@@ -288,12 +304,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DallasComponent", function() { return DallasComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../http.service */ "./src/app/http.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+
+
 
 
 var DallasComponent = /** @class */ (function () {
-    function DallasComponent() {
+    function DallasComponent(_httpService, route) {
+        this._httpService = _httpService;
+        this.route = route;
     }
     DallasComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        var observable = this._httpService.getPath(this.route.url.value[0].path);
+        observable.subscribe(function (x) {
+            // this.route.params.subscribe(y=>{
+            //   console.log(y);
+            // })
+            console.log(x);
+            _this.data = x;
+            console.log("data", _this.data);
+        });
     };
     DallasComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -301,7 +333,7 @@ var DallasComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./dallas.component.html */ "./src/app/dallas/dallas.component.html"),
             styles: [__webpack_require__(/*! ./dallas.component.css */ "./src/app/dallas/dallas.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_http_service__WEBPACK_IMPORTED_MODULE_2__["HttpService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"]])
     ], DallasComponent);
     return DallasComponent;
 }());
@@ -328,7 +360,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  dc works!\n</p>\n"
+module.exports = "<h4>HUMIDITY: {{data.main.humidity}}</h4>\n<h4>TEMPERATURE(AVG):  {{data.main.temp}}</h4>\n<h4>TEMPERATURE(LOW): {{data.main.temp_min}}</h4>\n<h4>TEMPERATURE(HIGH): {{data.main.temp_max}}</h4>\n<h4>STATUS: {{data.weather[0].description}}</h4>\n"
 
 /***/ }),
 
@@ -344,12 +376,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DcComponent", function() { return DcComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../http.service */ "./src/app/http.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+
+
 
 
 var DcComponent = /** @class */ (function () {
-    function DcComponent() {
+    function DcComponent(_httpService, route) {
+        this._httpService = _httpService;
+        this.route = route;
     }
     DcComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        var observable = this._httpService.getPath(this.route.url.value[0].path);
+        observable.subscribe(function (x) {
+            // this.route.params.subscribe(y=>{
+            //   console.log(y);
+            // })
+            console.log(x);
+            _this.data = x;
+            console.log("data", _this.data);
+        });
     };
     DcComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -357,7 +405,7 @@ var DcComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./dc.component.html */ "./src/app/dc/dc.component.html"),
             styles: [__webpack_require__(/*! ./dc.component.css */ "./src/app/dc/dc.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_http_service__WEBPACK_IMPORTED_MODULE_2__["HttpService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"]])
     ], DcComponent);
     return DcComponent;
 }());
@@ -388,11 +436,8 @@ var HttpService = /** @class */ (function () {
         this.data = {};
         //   this.getTasks();
     }
-    HttpService.prototype.getSeattle = function () {
-        return this._http.get("https://api.openweathermap.org/data/2.5/weather?q=Seattle,US&appid=c7b1b75be2bec974c6abebbdb05fcdd4");
-    };
-    HttpService.prototype.getTulsa = function () {
-        return this._http.get("https://api.openweathermap.org/data/2.5/weather?q=Tulsa,US&appid=c7b1b75be2bec974c6abebbdb05fcdd4");
+    HttpService.prototype.getPath = function (city) {
+        return this._http.get("https://api.openweathermap.org/data/2.5/weather?q=" + city + ",US&appid=c7b1b75be2bec974c6abebbdb05fcdd4");
     };
     HttpService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
@@ -425,7 +470,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  sanjose works!\n</p>\n"
+module.exports = "<h4>HUMIDITY: {{data.main.humidity}}</h4>\n<h4>TEMPERATURE(AVG):  {{data.main.temp}}</h4>\n<h4>TEMPERATURE(LOW): {{data.main.temp_min}}</h4>\n<h4>TEMPERATURE(HIGH): {{data.main.temp_max}}</h4>\n<h4>STATUS: {{data.weather[0].description}}</h4>\n"
 
 /***/ }),
 
@@ -441,12 +486,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SanjoseComponent", function() { return SanjoseComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../http.service */ "./src/app/http.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+
+
 
 
 var SanjoseComponent = /** @class */ (function () {
-    function SanjoseComponent() {
+    function SanjoseComponent(_httpService, route) {
+        this._httpService = _httpService;
+        this.route = route;
     }
     SanjoseComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        var observable = this._httpService.getPath(this.route.url.value[0].path);
+        observable.subscribe(function (x) {
+            // this.route.params.subscribe(y=>{
+            //   console.log(y);
+            // })
+            console.log(x);
+            _this.data = x;
+            console.log("data", _this.data);
+        });
     };
     SanjoseComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -454,7 +515,7 @@ var SanjoseComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./sanjose.component.html */ "./src/app/sanjose/sanjose.component.html"),
             styles: [__webpack_require__(/*! ./sanjose.component.css */ "./src/app/sanjose/sanjose.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_http_service__WEBPACK_IMPORTED_MODULE_2__["HttpService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"]])
     ], SanjoseComponent);
     return SanjoseComponent;
 }());
@@ -481,7 +542,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  seattle works!\n</p>\n"
+module.exports = "<h4>HUMIDITY: {{data.main.humidity}}</h4>\n<h4>TEMPERATURE(AVG):  {{data.main.temp}}</h4>\n<h4>TEMPERATURE(LOW): {{data.main.temp_min}}</h4>\n<h4>TEMPERATURE(HIGH): {{data.main.temp_max}}</h4>\n<h4>STATUS: {{data.weather[0].description}}</h4>\n"
 
 /***/ }),
 
@@ -497,12 +558,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SeattleComponent", function() { return SeattleComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../http.service */ "./src/app/http.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+
+
 
 
 var SeattleComponent = /** @class */ (function () {
-    function SeattleComponent() {
+    function SeattleComponent(_httpService, route) {
+        this._httpService = _httpService;
+        this.route = route;
     }
     SeattleComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        var observable = this._httpService.getPath(this.route.url.value[0].path);
+        observable.subscribe(function (x) {
+            // this.route.params.subscribe(y=>{
+            //   console.log(y);
+            // })
+            console.log(x);
+            _this.data = x;
+            console.log("data", _this.data);
+        });
     };
     SeattleComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -510,7 +587,7 @@ var SeattleComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./seattle.component.html */ "./src/app/seattle/seattle.component.html"),
             styles: [__webpack_require__(/*! ./seattle.component.css */ "./src/app/seattle/seattle.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_http_service__WEBPACK_IMPORTED_MODULE_2__["HttpService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"]])
     ], SeattleComponent);
     return SeattleComponent;
 }());
@@ -537,7 +614,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  task works!\n</p>\n"
+module.exports = ""
 
 /***/ }),
 
@@ -553,13 +630,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TaskComponent", function() { return TaskComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../http.service */ "./src/app/http.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+
+
 
 
 var TaskComponent = /** @class */ (function () {
-    function TaskComponent() {
-        this.weatherdata = {};
+    function TaskComponent(_httpService, route) {
+        this._httpService = _httpService;
+        this.route = route;
     }
     TaskComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        var observable = this._httpService.getPath(this.route.url.value[0].path);
+        observable.subscribe(function (x) {
+            // this.route.params.subscribe(y=>{
+            //   console.log(y);
+            // })
+            console.log(x);
+            _this.data = x;
+            console.log("data", _this.data);
+        });
     };
     TaskComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -567,7 +659,7 @@ var TaskComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./task.component.html */ "./src/app/task/task.component.html"),
             styles: [__webpack_require__(/*! ./task.component.css */ "./src/app/task/task.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_http_service__WEBPACK_IMPORTED_MODULE_2__["HttpService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"]])
     ], TaskComponent);
     return TaskComponent;
 }());
@@ -594,7 +686,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  {{ data | json}}\n</p>\n"
+module.exports = "<h4>HUMIDITY: {{data.main.humidity}}</h4>\n<h4>TEMPERATURE(AVG):  {{(data.main.temp -273.15)*9/5+32}} °F </h4>\n<h4>TEMPERATURE(LOW): {{(data.main.temp_min -273.15)*9/5+32}} °F</h4>\n<h4>TEMPERATURE(HIGH): {{(data.main.temp_max -273.15)*9/5+32}} °F</h4>\n<h4>STATUS: {{data.weather[0].description}}</h4>\n"
 
 /***/ }),
 
@@ -611,17 +703,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../http.service */ "./src/app/http.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+
 
 
 
 var TulsaComponent = /** @class */ (function () {
-    function TulsaComponent(_httpService) {
+    function TulsaComponent(_httpService, route) {
         this._httpService = _httpService;
+        this.route = route;
     }
     TulsaComponent.prototype.ngOnInit = function () {
         var _this = this;
-        var observable = this._httpService.getTulsa();
+        var observable = this._httpService.getPath(this.route.url.value[0].path);
         observable.subscribe(function (x) {
+            // this.route.params.subscribe(y=>{
+            //   console.log(y);
+            // })
             console.log(x);
             _this.data = x;
             console.log("data", _this.data);
@@ -633,7 +731,7 @@ var TulsaComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./tulsa.component.html */ "./src/app/tulsa/tulsa.component.html"),
             styles: [__webpack_require__(/*! ./tulsa.component.css */ "./src/app/tulsa/tulsa.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_http_service__WEBPACK_IMPORTED_MODULE_2__["HttpService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_http_service__WEBPACK_IMPORTED_MODULE_2__["HttpService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"]])
     ], TulsaComponent);
     return TulsaComponent;
 }());

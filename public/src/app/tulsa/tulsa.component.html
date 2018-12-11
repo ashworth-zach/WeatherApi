@@ -1,3 +1,5 @@
-<p>
-  {{ data | json}}
-</p>
+<h4>HUMIDITY: {{data.main.humidity}}</h4>
+<h4>TEMPERATURE(AVG):  {{(data.main.temp -273.15)*9/5+32}} °F </h4>
+<h4>TEMPERATURE(LOW): {{(data.main.temp_min -273.15)*9/5+32}} °F</h4>
+<h4>TEMPERATURE(HIGH): {{(data.main.temp_max -273.15)*9/5+32}} °F</h4>
+<h4>STATUS: {{data.weather[0].description}}</h4>
