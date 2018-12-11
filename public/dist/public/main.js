@@ -715,6 +715,7 @@ var TulsaComponent = /** @class */ (function () {
     }
     TulsaComponent.prototype.ngOnInit = function () {
         var _this = this;
+        console.log(this.route);
         var observable = this._httpService.getPath(this.route.url.value[0].path);
         observable.subscribe(function (x) {
             // this.route.params.subscribe(y=>{

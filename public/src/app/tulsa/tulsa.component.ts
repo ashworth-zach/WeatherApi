@@ -12,6 +12,7 @@ export class TulsaComponent implements OnInit {
   constructor(private _httpService: HttpService, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    console.log(this.route)
   var observable=this._httpService.getPath(this.route.url.value[0].path);
   observable.subscribe((x)=>{
     // this.route.params.subscribe(y=>{
