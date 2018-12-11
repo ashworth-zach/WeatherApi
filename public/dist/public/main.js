@@ -216,7 +216,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h4>HUMIDITY: {{data.main.humidity}}</h4>\n<h4>TEMPERATURE(AVG):  {{(data.main.temp -273.15)*9/5+32}} °F </h4>\n<h4>TEMPERATURE(LOW): {{(data.main.temp_min -273.15)*9/5+32}} °F</h4>\n<h4>TEMPERATURE(HIGH): {{(data.main.temp_max -273.15)*9/5+32}} °F</h4>\n<h4>STATUS: {{data.weather[0].description}}</h4>\n<img src=\"http://www.trbimg.com/img-5a3d3316/turbine/ct-edit-amazon-chicago-rank-edit-20171206\" alt=\"chicago\">"
+module.exports = "<h4>HUMIDITY: {{data.main.humidity}}</h4>\n<h4>TEMPERATURE(AVG):  {{data.main.temp}}</h4>\n<h4>TEMPERATURE(LOW): {{data.main.temp_min}}</h4>\n<h4>TEMPERATURE(HIGH): {{data.main.temp_max}}</h4>\n<h4>STATUS: {{data.weather[0].description}}</h4>\n<img src=\"http://www.trbimg.com/img-5a3d3316/turbine/ct-edit-amazon-chicago-rank-edit-20171206\" alt=\"chicago\">"
 
 /***/ }),
 
@@ -288,7 +288,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h4>HUMIDITY: {{data.main.humidity}}</h4>\n<h4>TEMPERATURE(AVG):  {{(data.main.temp -273.15)*9/5+32}} °F </h4>\n<h4>TEMPERATURE(LOW): {{(data.main.temp_min -273.15)*9/5+32}} °F</h4>\n<h4>TEMPERATURE(HIGH): {{(data.main.temp_max -273.15)*9/5+32}} °F</h4>\n<h4>STATUS: {{data.weather[0].description}}</h4>\n<img src=\"http://res.cloudinary.com/culturemap-com/image/upload/q_auto/ar_4:3,c_fill,g_faces:center,w_1200/v1508855968/photos/263214_original.jpg\" alt=\"dallas\">"
+module.exports = "<h4>HUMIDITY: {{data.main.humidity}}</h4>\n<h4>TEMPERATURE(AVG):  {{data.main.temp}}</h4>\n<h4>TEMPERATURE(LOW): {{data.main.temp_min}}</h4>\n<h4>TEMPERATURE(HIGH): {{data.main.temp_max}}</h4>\n<h4>STATUS: {{data.weather[0].description}}</h4>\n<img src=\"http://res.cloudinary.com/culturemap-com/image/upload/q_auto/ar_4:3,c_fill,g_faces:center,w_1200/v1508855968/photos/263214_original.jpg\" alt=\"dallas\">"
 
 /***/ }),
 
@@ -360,7 +360,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h4>HUMIDITY: {{data.main.humidity}}</h4>\n<h4>TEMPERATURE(AVG):  {{(data.main.temp -273.15)*9/5+32}} °F </h4>\n<h4>TEMPERATURE(LOW): {{(data.main.temp_min -273.15)*9/5+32}} °F</h4>\n<h4>TEMPERATURE(HIGH): {{(data.main.temp_max -273.15)*9/5+32}} °F</h4>\n<h4>STATUS: {{data.weather[0].description}}</h4>\n<img src=\"https://kids.nationalgeographic.com/content/dam/kids/photos/States/O-W/washington-dc-capitol.ngsversion.1435610747994.adapt.1900.1.jpg\" alt=\"dc\">"
+module.exports = "<h4>HUMIDITY: {{data.main.humidity}}</h4>\n<h4>TEMPERATURE(AVG):  {{data.main.temp}}</h4>\n<h4>TEMPERATURE(LOW): {{data.main.temp_min}}</h4>\n<h4>TEMPERATURE(HIGH): {{data.main.temp_max}}</h4>\n<h4>STATUS: {{data.weather[0].description}}</h4>\n<img src=\"https://kids.nationalgeographic.com/content/dam/kids/photos/States/O-W/washington-dc-capitol.ngsversion.1435610747994.adapt.1900.1.jpg\" alt=\"dc\">"
 
 /***/ }),
 
@@ -437,7 +437,7 @@ var HttpService = /** @class */ (function () {
         //   this.getTasks();
     }
     HttpService.prototype.getPath = function (city) {
-        return this._http.get("https://api.openweathermap.org/data/2.5/weather?q=" + city + ",US&appid=c7b1b75be2bec974c6abebbdb05fcdd4");
+        return this._http.get("https://api.openweathermap.org/data/2.5/weather?q=" + city + ",US&units=imperial&appid=c7b1b75be2bec974c6abebbdb05fcdd4");
     };
     HttpService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
@@ -470,7 +470,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h4>HUMIDITY: {{data.main.humidity}}</h4>\n<h4>TEMPERATURE(AVG):  {{(data.main.temp -273.15)*9/5+32}} °F </h4>\n<h4>TEMPERATURE(LOW): {{(data.main.temp_min -273.15)*9/5+32}} °F</h4>\n<h4>TEMPERATURE(HIGH): {{(data.main.temp_max -273.15)*9/5+32}} °F</h4>\n<h4>STATUS: {{data.weather[0].description}}</h4>\n<img src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Downtown_San_Jose_%2830001966530%29.jpg/1200px-Downtown_San_Jose_%2830001966530%29.jpg\" alt=\"san jose\">"
+module.exports = "<h4>HUMIDITY: {{data.main.humidity}}</h4>\n<h4>TEMPERATURE(AVG):  {{data.main.temp}}</h4>\n<h4>TEMPERATURE(LOW): {{data.main.temp_min}}</h4>\n<h4>TEMPERATURE(HIGH): {{data.main.temp_max}}</h4>\n<h4>STATUS: {{data.weather[0].description}}</h4>\n<img src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Downtown_San_Jose_%2830001966530%29.jpg/1200px-Downtown_San_Jose_%2830001966530%29.jpg\" alt=\"san jose\">"
 
 /***/ }),
 
@@ -542,7 +542,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h4>HUMIDITY: {{data.main.humidity}}</h4>\n<h4>TEMPERATURE(AVG):  {{(data.main.temp -273.15)*9/5+32}} °F </h4>\n<h4>TEMPERATURE(LOW): {{(data.main.temp_min -273.15)*9/5+32}} °F</h4>\n<h4>TEMPERATURE(HIGH): {{(data.main.temp_max -273.15)*9/5+32}} °F</h4>\n<h4>STATUS: {{data.weather[0].description}}</h4>\n<img src=\"https://www.seattleu.edu/media/homepage/images/SeattleSkyline-hp.jpg\" alt=\"seattle\">"
+module.exports = "<h4>HUMIDITY: {{data.main.humidity}}</h4>\n<h4>TEMPERATURE(AVG):  {{data.main.temp}}</h4>\n<h4>TEMPERATURE(LOW): {{data.main.temp_min}}</h4>\n<h4>TEMPERATURE(HIGH): {{data.main.temp_max}}</h4>\n<h4>STATUS: {{data.weather[0].description}}</h4>\n<img src=\"https://www.seattleu.edu/media/homepage/images/SeattleSkyline-hp.jpg\" alt=\"seattle\">"
 
 /***/ }),
 
@@ -686,7 +686,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h4>HUMIDITY: {{data.main.humidity}}</h4>\n<h4>TEMPERATURE(AVG):  {{(data.main.temp -273.15)*9/5+32}} °F </h4>\n<h4>TEMPERATURE(LOW): {{(data.main.temp_min -273.15)*9/5+32}} °F</h4>\n<h4>TEMPERATURE(HIGH): {{(data.main.temp_max -273.15)*9/5+32}} °F</h4>\n<h4>STATUS: {{data.weather[0].description}}</h4>\n<img src=\"http://tulsahistory.org/wp/wp-content/uploads/2010/01/Tulsa-skyline.jpg\" alt=\"tulsa\">\n "
+module.exports = "<h4>HUMIDITY: {{data.main.humidity}}</h4>\n<h4>TEMPERATURE(AVG):  {{data.main.temp}} °F </h4>\n<h4>TEMPERATURE(LOW): {{data.main.temp_min }} °F</h4>\n<h4>TEMPERATURE(HIGH): {{data.main.temp_max}} °F</h4>\n<h4>STATUS: {{data.weather[0].description}}</h4>\n<img src=\"http://tulsahistory.org/wp/wp-content/uploads/2010/01/Tulsa-skyline.jpg\" alt=\"tulsa\">\n "
 
 /***/ }),
 

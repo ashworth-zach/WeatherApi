@@ -1,6 +1,6 @@
 <h4>HUMIDITY: {{data.main.humidity}}</h4>
-<h4>TEMPERATURE(AVG):  {{(data.main.temp -273.15)*9/5+32}} °F </h4>
-<h4>TEMPERATURE(LOW): {{(data.main.temp_min -273.15)*9/5+32}} °F</h4>
-<h4>TEMPERATURE(HIGH): {{(data.main.temp_max -273.15)*9/5+32}} °F</h4>
+<h4>TEMPERATURE(AVG):  {{data.main.temp}}</h4>
+<h4>TEMPERATURE(LOW): {{data.main.temp_min}}</h4>
+<h4>TEMPERATURE(HIGH): {{data.main.temp_max}}</h4>
 <h4>STATUS: {{data.weather[0].description}}</h4>
 <img src="http://www.trbimg.com/img-5a3d3316/turbine/ct-edit-amazon-chicago-rank-edit-20171206" alt="chicago">
