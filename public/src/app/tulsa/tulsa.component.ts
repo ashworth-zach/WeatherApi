@@ -8,11 +8,13 @@ import { getViewData } from '@angular/core/src/render3/state';
   styleUrls: ['./tulsa.component.css']
 })
 export class TulsaComponent implements OnInit {
-
+  data={};
   constructor(private _httpService: HttpService) { }
 
   ngOnInit() {
-  
+  this._httpService.getTulsa().subscribe(function(data){
+    this.data=data;
+  });
   }
 
 }

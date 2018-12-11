@@ -9,8 +9,11 @@ export class HttpService {
   constructor(private _http: HttpClient) {
     //   this.getTasks();
   }
+  getSeattle(){
+    return this._http.get("https://api.openweathermap.org/data/2.5/weather?q=Seattle,US&appid=c7b1b75be2bec974c6abebbdb05fcdd4");
 
-  getTulsa(x) {
-    return this._http.get("https://samples.openweathermap.org/data/2.5/weather?q=Tulsa,us&appid=b6907d289e10d714a6e88b30761fae22");
+  }
+  getTulsa() {
+    return this._http.get("https://api.openweathermap.org/data/2.5/weather?q=Tulsa,US&appid=c7b1b75be2bec974c6abebbdb05fcdd4");
   }
 }

@@ -388,8 +388,11 @@ var HttpService = /** @class */ (function () {
         this.data = {};
         //   this.getTasks();
     }
-    HttpService.prototype.getTulsa = function (x) {
-        return this._http.get("https://samples.openweathermap.org/data/2.5/weather?q=Tulsa,us&appid=b6907d289e10d714a6e88b30761fae22");
+    HttpService.prototype.getSeattle = function () {
+        return this._http.get("https://api.openweathermap.org/data/2.5/weather?q=Seattle,US&appid=c7b1b75be2bec974c6abebbdb05fcdd4");
+    };
+    HttpService.prototype.getTulsa = function () {
+        return this._http.get("https://api.openweathermap.org/data/2.5/weather?q=Tulsa,US&appid=c7b1b75be2bec974c6abebbdb05fcdd4");
     };
     HttpService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
@@ -591,7 +594,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  tulsa works!\n</p>\n"
+module.exports = "<p>\n  {{data | json}}\n</p>\n"
 
 /***/ }),
 
@@ -614,8 +617,12 @@ __webpack_require__.r(__webpack_exports__);
 var TulsaComponent = /** @class */ (function () {
     function TulsaComponent(_httpService) {
         this._httpService = _httpService;
+        this.data = {};
     }
     TulsaComponent.prototype.ngOnInit = function () {
+        this._httpService.getTulsa().subscribe(function (data) {
+            this.data = data;
+        });
     };
     TulsaComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
