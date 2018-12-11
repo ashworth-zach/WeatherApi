@@ -594,7 +594,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  {{data | json}}\n</p>\n"
+module.exports = "<p>\n  {{ data | json}}\n</p>\n"
 
 /***/ }),
 
@@ -617,11 +617,14 @@ __webpack_require__.r(__webpack_exports__);
 var TulsaComponent = /** @class */ (function () {
     function TulsaComponent(_httpService) {
         this._httpService = _httpService;
-        this.data = {};
     }
     TulsaComponent.prototype.ngOnInit = function () {
-        this._httpService.getTulsa().subscribe(function (data) {
-            this.data = data;
+        var _this = this;
+        var observable = this._httpService.getTulsa();
+        observable.subscribe(function (x) {
+            console.log(x);
+            _this.data = x;
+            console.log("data", _this.data);
         });
     };
     TulsaComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
