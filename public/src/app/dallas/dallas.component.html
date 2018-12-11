@@ -1,6 +1,6 @@
 <h4>HUMIDITY: {{data.main.humidity}}</h4>
-<h4>TEMPERATURE(AVG):  {{data.main.temp}}</h4>
-<h4>TEMPERATURE(LOW): {{data.main.temp_min}}</h4>
-<h4>TEMPERATURE(HIGH): {{data.main.temp_max}}</h4>
+<h4>TEMPERATURE(AVG):  {{(data.main.temp -273.15)*9/5+32}} °F </h4>
+<h4>TEMPERATURE(LOW): {{(data.main.temp_min -273.15)*9/5+32}} °F</h4>
+<h4>TEMPERATURE(HIGH): {{(data.main.temp_max -273.15)*9/5+32}} °F</h4>
 <h4>STATUS: {{data.weather[0].description}}</h4>
 <img src="http://res.cloudinary.com/culturemap-com/image/upload/q_auto/ar_4:3,c_fill,g_faces:center,w_1200/v1508855968/photos/263214_original.jpg" alt="dallas">
